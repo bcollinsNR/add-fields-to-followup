@@ -1,0 +1,8 @@
+<header>
+  <span class="logo"/>
+  <h3>{{setting "name"}}</h3>
+</header>
+<button id="populate_drivers_button">Get tags into drivers</button>
+<footer>
+ by bcollins@newrelic.com 
+</footer>
