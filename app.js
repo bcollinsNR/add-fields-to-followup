@@ -1,5 +1,11 @@
 (function() {
 
+  var salesPriorityID = 24001886;   // sandbox
+  //var salesPriorityID = 0;          // prodction
+  var salesPriorityTags = ["sp0", "sp1", "sp2", "sp3", "sp4", "sp5", "sp6", "sp7", "sp8"];
+
+
+
   return { // the entire app goes inside this return block!
     // listen for API events such as the start of our app, when bits of it get clicked on or when AJAX requests complete
     events: {
@@ -26,8 +32,9 @@
       var ticketTags = this.ticket().tags();
 
       for (var i = 0; i < ticketTags.length; i++) {
-        if (ticketTags[i] == "sp0" || ticketTags[i] == "sp1" || ticketTags[i] == "sp2" || ticketTags[i] == "sp3" || ticketTags[i] == "sp4" || ticketTags[i] == "sp5" || ticketTags[i] == "sp6" || ticketTags[i] == "sp7" || ticketTags[i] == "sp8") {
-          ticket.customField("custom_field_24001886", ticketTags[i]);
+
+        if (salesPriorityTags.indexOf(ticketTags[i]) > -1) {
+          ticket.customField("custom_field_" + salesPriorityID, ticketTags[i]);
         }
         // parse other possible tags into the correct fields... going to be quite a bit ot work
       
